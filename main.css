@@ -1,0 +1,101 @@
+/* ===== BRAND VARIABLES ===== */
+:root {
+    --primary: #002b5c;      /* Navy Blue */
+    --primary-hover: #004ea2;
+    --secondary: #64748b;    /* Slate */
+    --success: #16a34a;      /* Green */
+    --danger: #dc2626;       /* Red */
+    --warning: #ca8a04;      /* Gold */
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ===== LAYOUT ===== */
+.wrapper { display: flex; min-height: 100vh; }
+
+#sidebar {
+    width: 260px;
+    background: #0f172a;
+    color: white;
+    transition: all 0.3s;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+#content {
+    flex: 1;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 1000;
+    }
+    #sidebar.active { left: 0; }
+    #content { padding: 1rem; }
+}
+
+/* ===== PROFESSIONAL FORMS ===== */
+.form-group { margin-bottom: 1.5rem; }
+label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+label.required::after { content: " *"; color: var(--danger); }
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 43, 92, 0.1);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+.btn-danger { background: var(--danger); color: white; }
+
+/* ===== CARDS & TABLES ===== */
+.card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th { background: #f1f5f9; padding: 1rem; text-align: left; font-size: 0.85rem; }
+td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
